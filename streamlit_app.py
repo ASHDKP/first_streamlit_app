@@ -29,7 +29,7 @@ def get_fruit_load_list ():
             my_data_row1 = my_cur1.fetchall()
             return my_data_row1
 
-def insert_row_snowflake(fruit_sent)
+def insert_row_snowflake(fruit_sent) :
       with  my_cnx1.cursor() as my_cur1 :
             my_cur1.execute("insert into fruit_load_list values('" + fruit_sent   + "')")
             my_data_row1 = my_cur1.fetchall()
