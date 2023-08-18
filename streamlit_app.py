@@ -33,7 +33,7 @@ def insert_row_snowflake(fruit_sent) :
       with  my_cnx1.cursor() as my_cur1 :
             my_cur1.execute("insert into fruit_load_list values('" + fruit_sent   + "')")
             my_data_row1 = my_cur1.fetchall()
-            return "Thank you for adding" + fruit_sent
+            return "Thank you for adding " + fruit_sent
 
 #New section to display FruityVice API results
 streamlit.header("Fruityvice Fruit Advice!")
