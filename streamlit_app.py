@@ -29,6 +29,12 @@ def get_fruit_load_list ():
             my_data_row1 = my_cur1.fetchall()
             return my_data_row1
 
+def insert_row_snowflake(fruit_sent)
+      with  my_cnx1.cursor() as my_cur1 :
+            my_cur1.execute("insert into fruit_load_list values('" + fruit_sent   + "')")
+            my_data_row1 = my_cur1.fetchall()
+            return "Thank you for adding" + fruit_sent
+
 #New section to display FruityVice API results
 streamlit.header("Fruityvice Fruit Advice!")
 try:
@@ -50,7 +56,10 @@ if streamlit.button('Get Fruit Load List') :
       streamlit.dataframe(my_data_rows)
 
 fruit_choice_final = streamlit.text_input('What fruit would you like to add? ','Enter Here')
-streamlit.write('Thank you for adding ', fruit_choice_final)
+if streamlit.button('Add a Fruit to the List') :
+      my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+      back_from_function = insert_row_snowflake(fruit_choice_final)
+      streamlit.text(back_from_function)
 
 
 
